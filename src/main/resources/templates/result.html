@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/Style.css" th:href="@{/css/Style.css}">
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div id="login-form">
+    <h1>Result</h1>
+
+    <fieldset>
+        <form>
+            <p th:text="'id: ' + ${greeting.getId()}"></p>
+            <p th:text="'content: ' + ${greeting.getContent()}">Password:<input type="password" required value="Пароль"
+                                                                                th:field="*{password}"></p>
+            <p><a href="/registration">Move to registration</a></p>
+            <p><a href="/login">Login</a></p>
+        </form>
+    </fieldset>
+
+</div>
+</body>
+</html>

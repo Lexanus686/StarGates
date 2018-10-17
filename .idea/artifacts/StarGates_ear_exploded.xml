@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="StarGates:ear exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/StarGates_ear_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="StarGates/javaeeApplication/javaEEApplication" />
+    </root>
+  </artifact>
+</component>

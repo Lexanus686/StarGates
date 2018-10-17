@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/Style.css" th:href="@{/css/Style.css}">
+    <title>Does it work?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+
+<div id="login-form">
+    <h1>Finally!</h1>
+
+    <fieldset>
+        <form>
+            <p th:text="'Hello, ' + ${registration.getName()} + ' ' + ${registration.getSurname()}"></p>
+            <p><a href="/greeting">Return to greeting!</a></p>
+        </form>
+    </fieldset>
+
+</div>
+
+<a href="http://jojo-animation.com">secret page</a>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="StarGates:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="simplewebapp.war">
+      <element id="artifact" artifact-name="StarGates:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link rel="stylesheet" type="text/css" href="/static/css/Style.css" th:href="@{/css/Style.css}">
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+<div id="login-form">
+    <h1>Авторизация на сайте</h1>
+
+    <fieldset>
+        <form>
+            <input type="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
+                   onFocus="if(this.value=='Логин')this.value='' ">
+            <input type="password" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'"
+                   onFocus="if(this.value=='Пароль')this.value='' ">
+            <input type="submit" value="ВОЙТИ">
+            <footer class="clearfix">
+                <p><span class="info">?</span><a href="#">Забыли пароль?</a></p>
+            </footer>
+        </form>
+    </fieldset>
+
+</div>
+
+</body>
+</html>

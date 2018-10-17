@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Register yourself!</title>
+    <link rel="stylesheet" href="/static/css/Style.css" th:href="@{/css/Style.css}">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+
+<div id="login-form">
+    <h1>Авторизация на сайте</h1>
+
+    <fieldset>
+        <form action="#" th:action="@{/registration}" th:object="${registration}" method="post">
+            <p>Login: <input type="email" required value="Логин" th:field="*{email}"></p>
+            <p>Password:<input type="password" required value="Пароль" th:field="*{password}"></p>
+            <p>Name:<input type="text" required value="Имя" th:field="*{name}"></p>
+            <p>FamilyName:<input type="text" required value="Фамилия" th:field="*{surname}"></p>
+            <footer class="clearfix">
+                <p><input type="submit" value="Регистрация"></p>
+            </footer>
+        </form>
+    </fieldset>
+
+</div>
+
+</body>
+</html>
