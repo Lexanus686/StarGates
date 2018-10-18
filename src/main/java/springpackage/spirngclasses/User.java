@@ -1,12 +1,16 @@
 package springpackage.spirngclasses;
 
-/*created 10.10.2018 14:36*/
 public class User {
+
     private int id;
-    private String name;
-    private String surname;
-    private String password;
+
     private String email;
+
+    private String password;
+
+    private String name;
+
+    private String surname;
 
     public User(int id, String name, String surname, String password, String email) {
         this.id = id;
