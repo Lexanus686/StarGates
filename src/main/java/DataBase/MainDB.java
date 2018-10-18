@@ -18,7 +18,7 @@ public class MainDB {
                 System.out.println(user.getName() + user.getSurname());
             }
             // Удаление записи с id = 2
-            dbHandler.deleteProduct(2);
+            //dbHandler.deleteProduct(2);
         } catch (SQLException e) {
             e.printStackTrace();
         }

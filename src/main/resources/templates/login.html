@@ -12,9 +12,10 @@
 
     <fieldset>
         <form>
-            <input type="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
+            <input type="email" name="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
                    onFocus="if(this.value=='Логин')this.value='' ">
-            <input type="password" required value="Пароль" onBlur="if(this.value=='')this.value='Пароль'"
+            <input type="password" name="password" required value="Пароль"
+                   onBlur="if(this.value=='')this.value='Пароль'"
                    onFocus="if(this.value=='Пароль')this.value='' ">
             <input type="submit" value="ВОЙТИ">
             <footer class="clearfix">
