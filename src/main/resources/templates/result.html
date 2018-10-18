@@ -13,8 +13,7 @@
     <fieldset>
         <form>
             <p th:text="'id: ' + ${greeting.getId()}"></p>
-            <p th:text="'content: ' + ${greeting.getContent()}">Password:<input type="password" required value="Пароль"
-                                                                                th:field="*{password}"></p>
+            <p th:text="'content: ' + ${greeting.getContent()}"></p>
             <p><a href="/registration">Move to registration</a></p>
             <p><a href="/login">Login</a></p>
         </form>
