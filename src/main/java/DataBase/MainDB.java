@@ -15,9 +15,9 @@ public class MainDB {
             // Получаем все записи и выводим их на консоль
             List<User> users = dbHandler.getAllUsers();
             for (User user : users) {
-                System.out.println(user.toString());
+                System.out.println(user.getName() + user.getSurname());
             }
-            // Удаление записи с id = 8
+            // Удаление записи с id = 2
             dbHandler.deleteProduct(2);
         } catch (SQLException e) {
             e.printStackTrace();

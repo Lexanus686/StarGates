@@ -77,6 +77,8 @@
     <orderEntry type="library" name="org.thymeleaf.extras:thymeleaf-extras-springsecurity4:Release2" level="project" />
     <orderEntry type="library" name="org.thymeleaf:thymeleaf-spring3:Release2" level="project" />
     <orderEntry type="library" name="org.thymeleaf:thymeleaf-spring4:Release2" level="project" />
+    <orderEntry type="library" name="sqljdbc42" level="project" />
+    <orderEntry type="library" name="Maven: org.xerial:sqlite-jdbc:3.25.2" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:1.5.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:1.5.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:1.5.2.RELEASE" level="project" />
@@ -129,6 +131,5 @@
     <orderEntry type="library" name="Maven: org.slf4j:jcl-over-slf4j:1.7.24" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.h2database:h2:1.4.193" level="project" />
-    <orderEntry type="library" name="sqljdbc42" level="project" />
   </component>
 </module>
