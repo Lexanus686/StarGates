@@ -1,15 +1,15 @@
-package starGatesProject;
+package starGatesProject.planetarysystem.planet_system_object_builder.mainclasses;
 
 import java.util.ArrayList;
 
-class Country {
+public class Country {
     private String countryName;
     private String formOfGovernment;
     private Location location;
     private ArrayList<String> raceNames;
     private boolean isPeacefull;
 
-    Country(String countryName, String formOfGovernment, Location location, String race, boolean peacefulness) {
+    public Country(String countryName, String formOfGovernment, Location location, String race, boolean peacefulness) {
         this.countryName = countryName;
         this.formOfGovernment = formOfGovernment;
         this.location = location;

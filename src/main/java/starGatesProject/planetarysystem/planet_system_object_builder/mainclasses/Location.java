@@ -1,6 +1,6 @@
-package starGatesProject;
+package starGatesProject.planetarysystem.planet_system_object_builder.mainclasses;
 
 //Применение перечисления для задания расположения
-enum Location {
+public enum Location {
     North, NorthWest, West, SouthWest, South, SouthEast, East, NorthEast;
 }
