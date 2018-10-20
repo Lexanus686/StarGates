@@ -48,11 +48,23 @@ public class DBHandler {
         }
     }
 
+    public boolean findUser(String email, String password) {
+        try {
+            Statement statement = this.connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT ID FROM UserTable WHERE LOGIN=" + "\"" + email + "\"" +
+                    "AND PASSWORD=" + "\"" + password + "\"");
+            return resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     //add user in BD
     public void addUser(User user) {
         try {
             PreparedStatement statement = this.connection.prepareStatement(
-                    "INSERT INTO Users('LOGIN', 'PASSWORD', 'NAME', 'SURNAME') " +
+                    "INSERT INTO UserTable('LOGIN', 'PASSWORD', 'NAME', 'SURNAME') " +
                             "VALUES(?, ?, ?, ?)");
             statement.setObject(1, user.getEmail());
             statement.setObject(2, user.getPassword());

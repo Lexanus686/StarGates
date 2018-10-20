@@ -11,12 +11,12 @@
     <h1>Авторизация на сайте</h1>
 
     <fieldset>
-        <form action="sqlask.php" method="post">
+        <form action="#" th:action="@{/login}" th:object="${login}" method="post">
             <input type="email" name="email" required value="Логин" onBlur="if(this.value=='')this.value='Логин'"
-                   onFocus="if(this.value=='Логин')this.value='' ">
+                   onFocus="if(this.value=='Логин')this.value=''" th:field="*{email}">
             <input type="password" name="password" required value="Пароль"
                    onBlur="if(this.value=='')this.value='Пароль'"
-                   onFocus="if(this.value=='Пароль')this.value='' ">
+                   onFocus="if(this.value=='Пароль')this.value='' " th:field="*{password}">
             <input type="submit" value="ВОЙТИ">
             <footer class="clearfix">
                 <p><span class="info">?</span><a href="#">Забыли пароль?</a></p>
