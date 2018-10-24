@@ -17,7 +17,7 @@ public class UserRegister {
     public String registerForm(Model model) {
         model.addAttribute("registration", new User());
         System.out.println("HERE");
-        return "registration";
+        return "forLoginAndRegistration/registration";
     }
 
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
@@ -33,17 +33,17 @@ public class UserRegister {
             System.out.println(check);
             if (!check) {
                 dbHandler.addUser(user);
-                return "successfullregister";
+                return "forLoginAndRegistration/successfullregister";
             } else {
                 System.out.println("ERROR");
-                return "failureinregistering";
+                return "forLoginAndRegistration/failureinregistering";
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         System.out.println(user.getEmail() + " " + user.getPassword());
         System.out.println(check);
-        return "finalpage";
+        return "forLoginAndRegistration/finalform";
 
 //        if (check)
 //            return "login";

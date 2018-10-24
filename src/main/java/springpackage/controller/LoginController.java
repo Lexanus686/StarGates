@@ -16,7 +16,7 @@ public class LoginController {
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginForm(Model model) {
         model.addAttribute("login", new Login());
-        return "login";
+        return "forLoginAndRegistration/login";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -33,8 +33,8 @@ public class LoginController {
         System.out.println(login.getEmail());
         System.out.println(check);
         if (check)
-            return "login";
-        else return "nologin";
+            return "forLoginAndRegistration/successfullregister";
+        else return "forLoginAndRegistration/nologin";
     }
 
 }

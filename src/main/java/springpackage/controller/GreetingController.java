@@ -14,13 +14,13 @@ public class GreetingController {
     public String greetingForm(Model model) {
         model.addAttribute("greeting", new Greeting());
         //System.out.println("THIS IS NOW");
-        return "greeting";
+        return "forLoginAndRegistration/greeting";
     }
 
     @RequestMapping(value = "/greeting", method = RequestMethod.POST)
     public String greetingSubmit(@ModelAttribute Greeting greeting, Model model) {
         model.addAttribute("greeting", greeting);
         //System.out.println(greeting.getId());
-        return "result";
+        return "forLoginAndRegistration/result";
     }
 }
