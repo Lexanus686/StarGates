@@ -1,8 +1,24 @@
 #circle {
     width: 120px;
     height: 120px;
-    background: #7fee1d;
+    background: lightblue;
+    position: relative;
     -moz-border-radius: 60px;
     -webkit-border-radius: 60px;
+    -webkit-user-drag: element;
     border-radius: 60px;
+}
+
+#header {
+    height: 90px;
+    background: rebeccapurple;
+}
+
+#planetCircle {
+    height: 1920px;
+    width: 1280px;
+}
+
+body {
+    background-image: url("../img/forMainGame.jpg");
 }
