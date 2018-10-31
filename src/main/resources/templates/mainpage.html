@@ -2,6 +2,7 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" type="text/css" href="/static/css/mainpagestyle.css" th:href="@{/css/mainpagestyle.css}">
+    <link rel="stylesheet" type="text/css" href="/static/css/showform.css" th:href="@{/css/showform.css}">
     <link rel="stylesheet" type="text/css" href="/static/jquery/jquery-ui.css" th:href="@{/jquery/jquery-ui.css}">
 
     <meta charset="UTF-8">
@@ -19,17 +20,24 @@
             $('#circle').draggable({containment: "parent"});
 
             var refresh = $('#circle');
-            refresh.html(xmlhttp.responseText);
             $('.item', refresh).draggable('enable');
         }
             )
     </script>
 
+    <script>
+        var dialog = $("#dialog").dialog({autoOpen: false});
+        $("input[type=button]").click(function () {
+            dialog.dialog("open");
+        });
+    </script>
+
+
 </head>
 <body id="body">
 
 <div id="header">
-    <input type="button" value="Create planets" onclick="createCircle()">
+    <button id="but1">Create planets</button>
 
     <label>Choose type of system you want to create</label>
     <select id="selectId">
@@ -48,8 +56,21 @@
 
 </div>
 
-<div id="planetCircle"></div>
-<div id="circle"></div>
+<div id="planet">
+
+</div>
+
+<div class="modal-shadow"></div>
+<form id="js:createPlanetForm" class="modal-window" action="#" th:action="@{/mainpage}" th:object="${mainpage}"
+      method="post">
+    <div class="close">X</div>
+    <p>Name: <input type="text" th:field="*{name}"></p>
+    <!--<p>Can we visit? <input type="checkbox" th:field="*{isAvailableToVisit}"> </p>-->
+    <p>Average temperature: <input type="number" th:field="*{averageTemperature}"></p>
+    <p>Gravitation power: <input type="number" th:field="*{gravitationPower}"></p>
+    <p>Name of stargate: <input type="text" th:field="*{starGate}"></p>
+    <p><input class="closebutton" type="submit" value="OK"></p>
+</form>
 
 </body>
 

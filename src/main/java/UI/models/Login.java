@@ -1,4 +1,8 @@
-package UI.classes;
+package UI.models;
+
+import persistence.DBHandler;
+
+import java.sql.SQLException;
 
 public class Login {
     private String email;
@@ -19,5 +23,10 @@ public class Login {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean checkLogin() throws SQLException {
+        DBHandler dbHandler = DBHandler.getInstance();
+        return dbHandler.findUser(this.getEmail(), this.getPassword());
     }
 }

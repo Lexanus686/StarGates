@@ -4,18 +4,11 @@ public class Planet extends SpaceObject {
 
     public Planet(String planetName, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, String stargateName) {
         super(planetName, isAvailableToVisit, averageTemperature, gravitationPower, new StarGate(stargateName));
-
-    }
-
-    //добавление страны и учет возможности жить на планете
-    public boolean addCountry(String name, String formOfGoverment, Location location, String race, boolean peacefulness) {
-
-        return true;
     }
 
     @Override
     public boolean isAvailableToVisit() {
-        return this.isAvailableToVisit;
+        return super.isAvailableToVisit;
     }
 
     @Override

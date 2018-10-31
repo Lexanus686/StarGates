@@ -1,11 +1,13 @@
 package businesslogic;
 
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.UUID;
 
 public class RandomBuilder implements PlanetarySystemBuilder {
 
     private String name;
-    private Integer number;
+    private Integer countOfPlanets;
     private ArrayList<SpaceObject> spaceObjects = new ArrayList<SpaceObject>();
     private Galaxy galaxyType;
 
@@ -16,7 +18,7 @@ public class RandomBuilder implements PlanetarySystemBuilder {
 
     @Override
     public void setSpaceObjects(int number) {
-        this.number = number;
+        this.countOfPlanets = number;
     }
 
     @Override
@@ -31,7 +33,7 @@ public class RandomBuilder implements PlanetarySystemBuilder {
 
     @Override
     public void addPlanetarySystemObject(SpaceObject obj) {
-        if (spaceObjects.size() < number) spaceObjects.add(obj);
+        if (spaceObjects.size() < countOfPlanets) spaceObjects.add(obj);
     }
 
     @Override
@@ -47,7 +49,21 @@ public class RandomBuilder implements PlanetarySystemBuilder {
 
     @Override
     public void buildPlanets() {
+        for (int i = 0; i < countOfPlanets; i++) {
+            spaceObjects.add(new Planet(UUID.randomUUID().toString(),
+                    new Random().nextBoolean(),
+                    new Random().nextFloat() - 273.15f,
+                    new Random().nextFloat() + 15f,
+                    randomName()));
+        }
+    }
 
+    private static String randomName() {
+        String name = "";
+        for (int i = 0; i < new Random().nextInt(4) + 2; i++) {
+            name += (char) new Integer(1982 * 231 / 133).intValue();
+        }
+        return name;
     }
 
     public PlanetarySystem getResult() {

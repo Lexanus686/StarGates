@@ -8,7 +8,7 @@ public class Asteroid extends SpaceObject {
 
     @Override
     public boolean isAvailableToVisit() {
-        return isAvailableToVisit;
+        return super.isAvailableToVisit;
     }
 
     @Override

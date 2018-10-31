@@ -1,6 +1,6 @@
 package persistence;
 
-import UI.classes.User;
+import UI.models.User;
 import org.sqlite.JDBC;
 
 import java.sql.*;
@@ -31,6 +31,7 @@ public class DBHandler {
         this.connection = DriverManager.getConnection(CON_STR);
     }
 
+    //
     public List<User> getAllUsers() {
 
         //Statement для выполнения sql-запроса

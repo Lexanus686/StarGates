@@ -15,7 +15,7 @@ public class Director {
     public void constructRandomSystem(PlanetarySystemBuilder planetarySystemBuilder) {
         planetarySystemBuilder.setName(UUID.randomUUID().toString());
         planetarySystemBuilder.setSpaceObjects(new Random().nextInt(18) + 1);
-
+        planetarySystemBuilder.buildPlanets();
         int random = new Random().nextInt(2) + 1;
         planetarySystemBuilder.setGalaxyType((random == 0) ? (Galaxy.MODERN) : ((random == 1) ? (Galaxy.ANCIENT) : (Galaxy.OLD)));
     }

@@ -51,7 +51,6 @@ public class SolarBuilder implements PlanetarySystemBuilder {
     @Override
     public void buildPlanets() {
         for (int i = 0; i < numberOfPlanets; i++) {
-
             spaceObjects.add(new Planet("Mercury", false, 273, 5.3f, "An"));
             spaceObjects.add(new Planet("Venus", false, 189, 8.3f, "Bn"));
             spaceObjects.add(new Planet("Earth", true, 15, 9.8f, "Cn"));

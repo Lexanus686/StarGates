@@ -1,9 +1,37 @@
-function createCircle() {
-    var planetCircle = document.getElementById("planetCircle");
-    var div = document.createElement("div");
-    div.id = 'circle';
-    div.className = "ui-draggable ui-draggable-handle ui-draggable-dragging";
-    planetCircle.appendChild(div);
-    planetCircle.appendChild(document.createElement("br"));
-}
+$(function () {
+    //появление фигуры при нажатии кнопки
+    $(".circle").draggable();
+    $("#but1").click(function (e) {
+        e.preventDefault();
+        var circle = $('<div id="circle"></div>').css('background', 'rgb('
+        + (Math.floor(Math.random() * 256)) + ','
+        + (Math.floor(Math.random() * 256)) + ','
+        + (Math.floor(Math.random() * 256)) + ')');
+        circle.draggable();
+        $('#planet').prepend(circle);
+
+        //появление формы при нажатии кнопки
+
+        $('.modal-shadow').show();
+        $('.modal-window').show();
+
+        $('.modal-shadow').click(function () {
+            $('.modal-shadow').hide();
+            $('.modal-window').hide();
+        });
+
+        $('.close').click(function () {
+            $('.modal-shadow').hide();
+            $('.modal-window').hide();
+        });
+
+        $('.closebutton').click(function () {
+            $('.modal-shadow').hide();
+            $('.modal-window').hide();
+        });
+
+    });
+});
+
+
 

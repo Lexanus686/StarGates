@@ -7,11 +7,11 @@ public interface PlanetarySystemBuilder {
 
     void setGalaxyType(Galaxy galaxyType);
 
+    void buildPlanets();
+
     Galaxy getGalaxyType();
 
     void addPlanetarySystemObject(SpaceObject obj);
 
     boolean removePlanetarySystemObject(String planetName);
-
-    void buildPlanets();
 }
