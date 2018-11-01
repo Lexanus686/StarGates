@@ -31,7 +31,7 @@ public class DBHandler {
         this.connection = DriverManager.getConnection(CON_STR);
     }
 
-    //
+    //TODO Всё, что ниже, должно относиться к DAO, после можно пойти в DTO.
     public List<User> getAllUsers() {
 
         //Statement для выполнения sql-запроса

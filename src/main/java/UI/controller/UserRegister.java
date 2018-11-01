@@ -12,11 +12,11 @@ import java.sql.SQLException;
 @Controller
 public class UserRegister {
 
-    private final UserManagerAbsrtact _userManager;
+    /*private final UserManagerAbsrtact _userManager;
 
     public UserRegister(UserManagerAbsrtact userManager) {
         _userManager = userManager;
-    }
+    }*/
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registerForm(Model model) {
