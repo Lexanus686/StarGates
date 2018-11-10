@@ -14,6 +14,7 @@
 
     <script src="/static/js/createplanetobject.js" th:src="@{/js/createplanetobject.js}"></script>
     <script src="/static/js/createplanetsystem.js" th:src="@{/js/createplanetsystem.js}"></script>
+    <script src="/static/js/sendinformation.js" th:src="@{/js/sendinformation.js}"></script>
 
     <script>
         $(document).ready(function () {
@@ -61,15 +62,14 @@
 </div>
 
 <div class="modal-shadow"></div>
-<form id="js:createPlanetForm" class="modal-window" action="#" th:action="@{/mainpage}" th:object="${mainpage}"
-      method="post">
+<form id="jscreatePlanetForm" class="modal-window">
     <div class="close">X</div>
-    <p>Name: <input type="text" th:field="*{name}"></p>
-    <!--<p>Can we visit? <input type="checkbox" th:field="*{isAvailableToVisit}"> </p>-->
-    <p>Average temperature: <input type="number" th:field="*{averageTemperature}"></p>
-    <p>Gravitation power: <input type="number" th:field="*{gravitationPower}"></p>
-    <p>Name of stargate: <input type="text" th:field="*{starGate}"></p>
-    <p><input class="closebutton" type="submit" value="OK"></p>
+    <p>Name: <input type="text" id="name"></p>
+    <p>Can we visit? <input type="checkbox" id="isVisiting"></p>
+    <p>Average temperature: <input type="number" id="temperature"></p>
+    <p>Gravitation power: <input type="number" id="gravitation"></p>
+    <p>Name of stargate: <input type="text" id="stargate"></p>
+    <input type="button" value="OK" onclick="call()" class="closebutton">
 </form>
 
 </body>

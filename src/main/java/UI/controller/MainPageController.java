@@ -1,26 +1,37 @@
 package UI.controller;
 
 import UI.models.PlanetUI;
-import businesslogic.Planet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainPageController {
 
-    @RequestMapping(value = "/mainpage", method = RequestMethod.GET)
-    public String mainpageForm(Model model) {
-        model.addAttribute("mainpage", new PlanetUI());
+    @RequestMapping(value = "/getPlanet", method = RequestMethod.GET)
+    public @ResponseBody
+    String getPlanet(@RequestParam String text) {
+        PlanetUI planet = new PlanetUI();
+        System.out.println("321");
+
+        /*planet.setName(name);
+        planet.setAvailableToVisit(isVisited);
+        planet.setAverageTemperature(avg);
+        planet.setGravitationPower(gravity);
+        planet.setStarGate(gateName);*/
+        System.out.println(text);
+        return text;
+    }
+
+    @GetMapping("/mainpage")
+    public String mainPageForm(@RequestParam(name = "name", required = false, defaultValue = "World") String mainpage, Model model) {
+        model.addAttribute("main", mainpage);
         return "mainpage";
     }
 
-    @RequestMapping(value = "/mainpage", method = RequestMethod.POST)
-    public String mainpagePostForm(PlanetUI planetUI, Model model) {
-        model.addAttribute("mainpage", planetUI);
-        Planet planet = new Planet(planetUI.getName(), true, planetUI.getAverageTemperature(), planetUI.getGravitationPower(), planetUI.getStarGate());
-        /*...*/
+    @PostMapping("/mainpage")
+    public String mainPagePost(@RequestParam(name = "name", required = false, defaultValue = "World") String mainpage, Model model) {
+        model.addAttribute("main", mainpage);
         return "mainpage";
     }
 }
