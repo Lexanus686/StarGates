@@ -13,6 +13,19 @@ public class StarGate {
         this.isActivated = false;
     }
 
+    public StarGate(String name, boolean isActivated) {
+        this.name = name;
+        this.isActivated = isActivated;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setActivated(boolean activated) {
+        this.isActivated = activated;
+    }
+
     public boolean isActivated() {
         return isActivated;
     }

@@ -1,19 +1,22 @@
 package UI.controller;
 
-import UI.models.Login;
+import businesslogic.Login;
+import businesslogic.LoginManagerAbstract;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.sql.SQLException;
-
 @Controller
 public class LoginController {
 
+    private LoginManagerAbstract loginManager;
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginForm(Model model) {
+        loginManager = new LoginManagerAbstract();
+
         model.addAttribute("login", new Login());
         return "forLoginAndRegistration/login";
     }
@@ -22,16 +25,9 @@ public class LoginController {
     public String loginSubmit(@ModelAttribute Login login, Model model) {
         model.addAttribute("login", login);
 
-        boolean check = true;
-
-        try {
-            check = login.checkLogin();
-        } catch (SQLException e) {
-            e.printStackTrace();
+        if (!loginManager.getLogin(login)) {
+            return "forLoginAndRegistration/successlogin";
         }
-
-        if (check)
-            return "forLoginAndRegistration/successfullregister";
         else return "forLoginAndRegistration/nologin";
     }
 

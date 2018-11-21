@@ -54,7 +54,7 @@ public class RandomBuilder implements PlanetarySystemBuilder {
                     new Random().nextBoolean(),
                     new Random().nextFloat() - 273.15f,
                     new Random().nextFloat() + 15f,
-                    randomName()));
+                    randomName(), randomActivated(), randomLocation(), randomHTMLCode()));
         }
     }
 
@@ -64,6 +64,34 @@ public class RandomBuilder implements PlanetarySystemBuilder {
             name += (char) new Integer(1982 * 231 / 133).intValue();
         }
         return name;
+    }
+
+    private static boolean randomActivated() {
+        return new Random().nextInt(1000) % 2 == 1;
+    }
+
+    private static Galaxy randomLocation() {
+        int random = new Random().nextInt(3);
+        switch (random) {
+            case 0:
+                return Galaxy.MODERN;
+            case 1:
+                return Galaxy.OLD;
+            case 2:
+                return Galaxy.ANCIENT;
+            default:
+                return null;
+        }
+    }
+
+    private static String randomHTMLCode() {
+        String tmp;
+
+        tmp = "circle, ui-draggable ui-draggable-handle, background: rgb(" + Integer.toString(new Random().nextInt(256)) +
+                "," + Integer.toString(new Random().nextInt(256)) + "," + Integer.toString(new Random().nextInt(256)) + "); position: relative; left: " +
+                Integer.toString(new Random().nextInt(1280)) + "px; top:" + Integer.toString(new Random().nextInt(1280)) + "px;";
+
+        return tmp;
     }
 
     public PlanetarySystem getResult() {

@@ -2,8 +2,8 @@ package businesslogic;
 
 public class Asteroid extends SpaceObject {
 
-    Asteroid(String name, boolean isAvailableToVisit) {
-        super(name, isAvailableToVisit, -273.15f, 0f, null);
+    public Asteroid(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
+        super(name, isAvailableToVisit, averageTemperature, gravitationPower, starGate, location, htmlInfo);
     }
 
     @Override
@@ -14,6 +14,16 @@ public class Asteroid extends SpaceObject {
     @Override
     public String getPlanetaryObjectName() {
         return super.name;
+    }
+
+    @Override
+    public Float getAverageTemperature() {
+        return super.averageTemperature;
+    }
+
+    @Override
+    public Float getGravitationPower() {
+        return super.gravitationPower;
     }
 
     @Override
@@ -29,5 +39,15 @@ public class Asteroid extends SpaceObject {
     @Override
     public void setLocation(Galaxy location) {
         super.location = location;
+    }
+
+    @Override
+    public void setHtmlInfo(String htmlInfo) {
+        super.htmlInfo = htmlInfo;
+    }
+
+    @Override
+    public String getHtmlInfo() {
+        return super.htmlInfo;
     }
 }

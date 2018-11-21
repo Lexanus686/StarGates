@@ -15,6 +15,7 @@
     <script src="/static/js/createplanetobject.js" th:src="@{/js/createplanetobject.js}"></script>
     <script src="/static/js/createplanetsystem.js" th:src="@{/js/createplanetsystem.js}"></script>
     <script src="/static/js/sendinformation.js" th:src="@{/js/sendinformation.js}"></script>
+    <script src="/static/js/updatingpositions.js" th:src="@{/js/updatingpositions.js}"></script>
 
     <script>
         $(document).ready(function () {
@@ -38,8 +39,6 @@
 <body id="body">
 
 <div id="header">
-    <button id="but1">Create planets</button>
-
     <label>Choose type of system you want to create</label>
     <select id="selectId">
 
@@ -55,6 +54,8 @@
 
     <input type="button" value="Create System" onclick="createSystem()">
 
+    <button id="but1">Create planets</button>
+
 </div>
 
 <div id="planet">
@@ -68,8 +69,14 @@
     <p>Can we visit? <input type="checkbox" id="isVisiting"></p>
     <p>Average temperature: <input type="number" id="temperature"></p>
     <p>Gravitation power: <input type="number" id="gravitation"></p>
+    <p>Location: <select name="select" id="location" size="3" multiple>
+        <option value="s1">MODERN</option>
+        <option value="s2">OLD</option>
+        <option value="s3">ANCIENT</option>
+    </select>
+    </p>
     <p>Name of stargate: <input type="text" id="stargate"></p>
-    <input type="button" value="OK" onclick="call()" class="closebutton">
+    <input type="button" value="OK" onclick="call(); updating()" class="closebutton">
 </form>
 
 </body>

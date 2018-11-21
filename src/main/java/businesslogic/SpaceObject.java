@@ -2,19 +2,22 @@ package businesslogic;
 
 public abstract class SpaceObject {
 
-    String name; ////название объекта
-    boolean isAvailableToVisit; //возможность посещения человеческой расой
-    float averageTemperature; //средняя температура
-    float gravitationPower; //сила гравитации (в g)
+    String name;
+    boolean isAvailableToVisit;
+    float averageTemperature;
+    float gravitationPower;
     StarGate starGate;
     Galaxy location;
+    String htmlInfo;
 
-    SpaceObject(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate) {
+    SpaceObject(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
         this.name = name;
         this.isAvailableToVisit = isAvailableToVisit;
         this.averageTemperature = averageTemperature;
         this.gravitationPower = gravitationPower;
         this.starGate = starGate;
+        this.location = location;
+        this.htmlInfo = htmlInfo;
     }
 
     public abstract void setLocation(Galaxy galaxyType);
@@ -23,7 +26,15 @@ public abstract class SpaceObject {
 
     public abstract String getPlanetaryObjectName();
 
+    public abstract Float getAverageTemperature();
+
+    public abstract Float getGravitationPower();
+
     public abstract StarGate getStargate();
 
     public abstract Galaxy getLocation();
+
+    public abstract void setHtmlInfo(String htmlInfo);
+
+    public abstract String getHtmlInfo();
 }

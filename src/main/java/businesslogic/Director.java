@@ -20,8 +20,7 @@ public class Director {
         planetarySystemBuilder.setGalaxyType((random == 0) ? (Galaxy.MODERN) : ((random == 1) ? (Galaxy.ANCIENT) : (Galaxy.OLD)));
     }
 
-
     public void constructCustomisedSystem(PlanetarySystemBuilder planetarySystemBuilder) {
-        //planetarySystemBuilder.setName();
+        //TODO допилить реализацию. Пусть тут user сам задает, что он хочет построить
     }
 }

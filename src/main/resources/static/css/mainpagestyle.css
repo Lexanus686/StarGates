@@ -13,11 +13,10 @@
     background: rebeccapurple;
 }
 
-#planetCircle {
-    height: 600px;
-    width: 600px;
-}
-
 body {
     background-image: url("../img/forMainGame.jpg");
+}
+
+#but1 {
+    display: none;
 }

@@ -41,4 +41,10 @@ public class PlanetarySystem {
     public Galaxy getTypeOfGalaxy() {
         return this.typeOfGalaxy;
     }
+
+    public void info() {
+        System.out.println(getName());
+        System.out.println(getTypeOfGalaxy());
+        System.out.println(getPlanets());
+    }
 }
