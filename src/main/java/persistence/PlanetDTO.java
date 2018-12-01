@@ -5,15 +5,15 @@ import businesslogic.StarGate;
 
 public class PlanetDTO {
     private int id;
-    String name; ////название объекта
-    boolean isAvailableToVisit; //возможность посещения человеческой расой
-    float averageTemperature; //средняя температура
-    float gravitationPower; //сила гравитации (в g)
-    StarGate starGate;
-    Galaxy location;
-    String htmlInfo;
+    private String name; ////название объекта
+    private boolean isAvailableToVisit; //возможность посещения человеческой расой
+    private float averageTemperature; //средняя температура
+    private float gravitationPower; //сила гравитации (в g)
+    private StarGate starGate;
+    private Galaxy location;
+    private String htmlInfo;
 
-    public PlanetDTO(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
+    PlanetDTO(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
         this.name = name;
         this.isAvailableToVisit = isAvailableToVisit;
         this.averageTemperature = averageTemperature;

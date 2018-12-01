@@ -14,8 +14,7 @@ public class PlanetManagerAbstract extends Session {
 
     public PlanetManagerAbstract() {
         getInstance();
-        planetRepository = new PlanetRepository();
-        planetRepository.setSessionID(super.getSessionID());
+        planetRepository = new PlanetRepository(this);
     }
 
     public Planet getPlanet(Planet planet) {
@@ -27,18 +26,21 @@ public class PlanetManagerAbstract extends Session {
     }
 
     public void updatePlanets(String[] htmlelements) {
-        planetRepository.updateHTML(htmlelements, getSessionID());
+        planetRepository.updateHTML(htmlelements);
     }
 
     public ArrayList<Planet> getAllPlanets() {
         ArrayList<Planet> tmp = new ArrayList<Planet>();
-        ArrayList<PlanetDTO> tmp2 = new ArrayList<PlanetDTO>();
 
-        tmp2 = planetRepository.getAllPlanets();
-        for (PlanetDTO item : tmp2) {
+        ArrayList<PlanetDTO> allPlanets = planetRepository.getAllPlanets();
+        for (PlanetDTO item : allPlanets) {
             tmp.add(convertPlanetDTOToPlanet(item));
         }
 
         return tmp;
+    }
+
+    public int getSessionID() {
+        return super.getSessionID();
     }
 }

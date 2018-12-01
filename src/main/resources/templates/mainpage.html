@@ -18,13 +18,24 @@
     <script src="/static/js/updatingpositions.js" th:src="@{/js/updatingpositions.js}"></script>
 
     <script>
+        $(window).on("beforeunload", function () {
+            updating();
+        })
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            retrive();
+        });
+    </script>
+
+    <script>
         $(document).ready(function () {
             $('#circle').draggable({containment: "parent"});
 
             var refresh = $('#circle');
             $('.item', refresh).draggable('enable');
-        }
-            )
+        });
     </script>
 
     <script>
@@ -52,7 +63,7 @@
 
     </select>
 
-    <input type="button" value="Create System" onclick="createSystem()">
+    <input type="button" id="butchoose" value="Create System" onclick="createSystem()">
 
     <button id="but1">Create planets</button>
 

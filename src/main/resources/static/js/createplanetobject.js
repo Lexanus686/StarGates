@@ -28,5 +28,67 @@ $(function () {
     });
 });
 
+function retrive() {
+    msg = "getPlanets";
+    $.ajax({
+        url: 'getAllPlanets',
+        type: 'GET',
+        data: ({
+            myMessage: msg
+        }),
+        success: function (data) {
 
+            //TODO TOP LEVEL: UNDERSTAND HOW TO PLACE ALL OF THEM TOWARDS EACH OTHER CORRECTLY (id:0)
+            var offset = 120;
+            var count = 0;
+            var top = 0;
+            for (j = 0; j < data.length; j++) {
+                var str = "";
+                for (i = 0; i < data[j].length; i++)
+                    str += data[j][i];
 
+                var check = 0, flag = 0;
+                while (flag !== 7) {
+                    if (check === 0) check = 1;
+                    check = str.indexOf(" ", check + 1);
+                    flag++;
+                }
+
+                var lol = str.slice(str.lastIndexOf("["), str.length);
+
+                var id = lol.slice(1, lol.indexOf(","));
+
+                var StyleName = lol.slice(lol.indexOf("background"), lol.length - 1);
+                StyleName = StyleName.replace(/\s+/g, '');
+
+                //TODO (id:0)
+                // top = parseInt(StyleName.slice(StyleName.indexOf("top") + 4, StyleName.lastIndexOf(";")), 10);
+                //
+                // alert(top);
+                //
+                // var tmp = top.toString();
+                // alert(tmp);
+                //
+                // alert(offset*count);
+                // alert(top+offset*count);
+                //
+                // top = top + offset*count;
+                // alert(top);
+                // if (count === 0)
+                //     count = 2;
+                // else count++;
+                // alert(count);
+                // StyleName = StyleName.replace(tmp, top.toString());
+                //
+                // alert(tmp + ' ' + top);
+
+                var divElement = $("<div id = " + id + " style = " + StyleName + ">");
+                divElement.draggable();
+                $('#planet').append(divElement);
+            }
+        },
+        error: function (e) {
+            alert(e.text);
+        }
+    });
+}

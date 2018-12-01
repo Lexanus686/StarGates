@@ -20,12 +20,13 @@ public class MainPageController {
             planetManager.updatePlanets(errorElement(htmlelements));
         else planetManager.updatePlanets(htmlelements);
 
-        return 3;
+        return 33;
     }
 
     private static String[] errorElement(String[] htmlelements) {
         String[] tmp = new String[1];
         tmp[0] = htmlelements[0] + "," + htmlelements[1] + "," + htmlelements[2];
+
         return tmp;
     }
 
@@ -44,27 +45,37 @@ public class MainPageController {
             PlanetarySystem current = randomBuilder.getResult();
             //current.info();
         }
-        return 2;
+        return 23;
     }
 
-    @RequestMapping(value = "/getPlanet", method = RequestMethod.GET)
+    @RequestMapping(value = "/addPlanet", method = RequestMethod.GET)
     public @ResponseBody
-    Integer getPlanet(@RequestParam(value = "myArray[]") String[] myArray) {
+    Integer addPlanet(@RequestParam(value = "myArray[]") String[] myArray) {
         Planet planet = getinit(myArray);
         planetManager.addPlanet(planet);
         //planet.info();
-        return 1;
+        return 13;
+    }
+
+    @RequestMapping(value = "/getAllPlanets", method = RequestMethod.GET)
+    public @ResponseBody
+    String[] getAllPlanets(@RequestParam(value = "myMessage") String myMessage) {
+        ArrayList<Planet> allPlanets = planetManager.getAllPlanets();
+
+        String[] tmp = new String[allPlanets.size()];
+        for (int i = 0; i < allPlanets.size(); i++) {
+            tmp[i] = allPlanets.get(i).getPlanetaryObjectName() + " " + allPlanets.get(i).isAvailableToVisit() + " " +
+                    allPlanets.get(i).getAverageTemperature() + " " + allPlanets.get(i).getGravitationPower() + " " +
+                    allPlanets.get(i).getStargate().getName() + " " + allPlanets.get(i).getStargate().isActivated() + " " +
+                    allPlanets.get(i).getLocation() + " " + allPlanets.get(i).getHtmlInfo();
+        }
+
+        return tmp;
     }
 
     @GetMapping("/mainpage")
     public String mainPageForm(@RequestParam(name = "name", required = false, defaultValue = "World") String mainpage, Model model) {
         planetManager = new PlanetManagerAbstract();
-        ArrayList<Planet> allPlanets = planetManager.getAllPlanets();
-        //for test
-//        for (Planet item: allPlanets)
-//            item.info();
-
-        //TODO реализовать загрузку всех планет на сайт, как только user войдет на страницу
 
         model.addAttribute("main", mainpage);
         return "mainpage";
@@ -93,14 +104,14 @@ public class MainPageController {
             }
         }
 
-        String html = "";
+        StringBuilder html = new StringBuilder();
 
         for (int i = 6; i < array.length; i++) {
-            html += array[i];
+            if (i == 6) html.append("[").append(array[i]).append(", ");
+            else if (i == 8) html.append(array[i]).append("]");
+            else html.append(array[i]).append(", ");
         }
 
-        Planet tmp = new Planet(array[0], array[1].equals("true"), temp, gravity, array[4], type, html);
-
-        return tmp;
+        return new Planet(array[0], array[1].equals("true"), temp, gravity, array[4], type, html.toString());
     }
 }
