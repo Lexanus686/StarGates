@@ -1,17 +1,21 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+import businesslogic.entities.SpaceObject;
+
 import java.util.ArrayList;
 
-public class PlanetarySystem {
+public class PlanetarySystem implements PlanetarySystemInterface {
     private String name;
     private ArrayList<SpaceObject> planets;
     private Galaxy typeOfGalaxy;
     private Integer numberOfPlanets;
 
-    public PlanetarySystem(String planetarySystemName, ArrayList<SpaceObject> planets, Galaxy typeOfGalaxy) {
+    PlanetarySystem(String planetarySystemName, ArrayList<SpaceObject> planets, Galaxy typeOfGalaxy) {
         this.name = planetarySystemName;
         this.planets = planets;
         this.typeOfGalaxy = typeOfGalaxy;
+        this.numberOfPlanets = planets.size();
     }
 
     public void setName(String name) {
@@ -20,15 +24,16 @@ public class PlanetarySystem {
 
     public void setPlanets(ArrayList<SpaceObject> planets) {
         this.planets = planets;
+        this.numberOfPlanets = planets.size();
     }
 
     public void setTypeOfGalaxy(Galaxy typeOfGalaxy) {
         this.typeOfGalaxy = typeOfGalaxy;
     }
 
-    public void setNumberOfPlanets(Integer numberOfPlanets) {
-        this.numberOfPlanets = numberOfPlanets;
-    }
+//    public void setNumberOfPlanets(Integer numberOfPlanets) {
+//        this.numberOfPlanets = numberOfPlanets;
+//    }
 
     public String getName() {
         return this.name;
@@ -42,9 +47,7 @@ public class PlanetarySystem {
         return this.typeOfGalaxy;
     }
 
-    public void info() {
-        System.out.println(getName());
-        System.out.println(getTypeOfGalaxy());
-        System.out.println(getPlanets());
+    public Integer getNumberOfPlanets() {
+        return this.numberOfPlanets;
     }
 }

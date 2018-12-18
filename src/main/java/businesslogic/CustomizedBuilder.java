@@ -1,5 +1,8 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+import businesslogic.entities.SpaceObject;
+
 import java.util.ArrayList;
 
 //Пользовтель с помощью формы сам будет выбирать, что ему строить
@@ -51,6 +54,7 @@ public class CustomizedBuilder implements PlanetarySystemBuilder {
 
     }
 
+    @Override
     public PlanetarySystem getResult() {
         return new PlanetarySystem(this.name, this.spaceObjects, this.galaxyType);
     }

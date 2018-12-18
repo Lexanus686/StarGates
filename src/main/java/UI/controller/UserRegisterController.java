@@ -1,7 +1,8 @@
 package UI.controller;
 
-import businesslogic.User;
-import businesslogic.UserManagerAbstract;
+import businesslogic.UserRegisterManager;
+import businesslogic.UserRegisterManagerInterface;
+import businesslogic.entities.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -9,14 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-public class UserRegister {
+public class UserRegisterController {
 
-    private UserManagerAbstract userManager;
+    private UserRegisterManagerInterface userManager;
 
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public String registerForm(Model model) {
         model.addAttribute("registration", new User());
-        userManager = new UserManagerAbstract();
+        userManager = new UserRegisterManager();
 
         return "forLoginAndRegistration/registration";
     }

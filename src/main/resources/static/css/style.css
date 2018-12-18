@@ -46,12 +46,12 @@ input[type="submit"] {
 
 /* ---------- LOGIN-FORM ---------- */
 
-#login-form {
+#signIn-form {
     margin: 150px auto;
     width: 300px;
 }
 
-#login-form h1 {
+#signIn-form h1 {
     background-color: #282830;
     border-radius: 5px 5px 0 0;
     color: #fff;
@@ -61,14 +61,14 @@ input[type="submit"] {
     text-transform: uppercase;
 }
 
-#login-form fieldset {
+#signIn-form fieldset {
     background: #fff;
     border-radius: 0 0 5px 5px;
     padding: 20px;
     position: relative;
 }
 
-#login-form fieldset:before {
+#signIn-form fieldset:before {
     background-color: #fff;
     content: "";
     height: 8px;
@@ -84,32 +84,32 @@ input[type="submit"] {
     width: 8px;
 }
 
-#login-form input {
+#signIn-form input {
     font-size: 14px;
 }
 
-#login-form p {
+#signIn-form p {
     font-size: 14px;
 }
 
-#login-form input[type="email"],
-#login-form input[type="password"],
-#login-form input[type="text"] {
+#signIn-form input[type="email"],
+#signIn-form input[type="password"],
+#signIn-form input[type="text"] {
     border: 1px solid #dcdcdc;
     padding: 12px 10px;
     width: 238px;
 }
 
-#login-form input[type="email"] {
+#signIn-form input[type="email"] {
     border-radius: 3px 3px 0 0;
 }
 
-#login-form input[type="password"] {
+#signIn-form input[type="password"] {
     border-top: none;
-    border-radius: 0px 0px 3px 3px;
+    border-radius: 0 0 3px 3px;
 }
 
-#login-form input[type="submit"] {
+#signIn-form input[type="submit"] {
     background: #1dabb8;
     border-radius: 3px;
     color: #fff;
@@ -119,11 +119,11 @@ input[type="submit"] {
     padding: 12px 20px;
 }
 
-#login-form input[type="submit"]:hover {
+#signIn-form input[type="submit"]:hover {
     background: #198d98;
 }
 
-#login-form footer {
+#signIn-form footer {
     font-size: 12px;
     margin-top: 16px;
 }

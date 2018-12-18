@@ -1,7 +1,7 @@
 package persistence;
 
-import businesslogic.Galaxy;
 import businesslogic.StarGate;
+import businesslogic.entities.Galaxy;
 
 public class PlanetDTO {
     private int id;
@@ -39,7 +39,7 @@ public class PlanetDTO {
         this.name = name;
     }
 
-    public boolean isAvailableToVisit() {
+    boolean isAvailableToVisit() {
         return isAvailableToVisit;
     }
 
@@ -47,7 +47,7 @@ public class PlanetDTO {
         isAvailableToVisit = availableToVisit;
     }
 
-    public float getAverageTemperature() {
+    float getAverageTemperature() {
         return averageTemperature;
     }
 
@@ -55,7 +55,7 @@ public class PlanetDTO {
         this.averageTemperature = averageTemperature;
     }
 
-    public float getGravitationPower() {
+    float getGravitationPower() {
         return gravitationPower;
     }
 
@@ -63,7 +63,7 @@ public class PlanetDTO {
         this.gravitationPower = gravitationPower;
     }
 
-    public StarGate getStarGate() {
+    StarGate getStarGate() {
         return starGate;
     }
 
@@ -79,7 +79,7 @@ public class PlanetDTO {
         this.location = location;
     }
 
-    public String getHtmlInfo() {
+    String getHtmlInfo() {
         return htmlInfo;
     }
 

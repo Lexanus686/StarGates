@@ -12,8 +12,8 @@ $(function () {
 
         //появление формы при нажатии кнопки
 
-        $('.modal-shadow').show();
         $('.modal-window').show();
+        $('.modal-shadow').show();
 
         $('.close').click(function () {
             $('.modal-shadow').hide();
@@ -29,6 +29,7 @@ $(function () {
 });
 
 function retrive() {
+    alert("x");
     msg = "getPlanets";
     $.ajax({
         url: 'getAllPlanets',

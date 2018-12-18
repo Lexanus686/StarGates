@@ -1,11 +1,8 @@
-package businesslogic;
+package businesslogic.entities;
 
 public class Session {
     private static Session instance;
-    private static int sessionID = -1;
-
-    Session() {
-    }
+    private int sessionID = -1;
 
     public static Session getInstance() {
         if (instance == null)
@@ -13,11 +10,11 @@ public class Session {
         return instance;
     }
 
-    int getSessionID() {
+    public int getSessionID() {
         return sessionID;
     }
 
-    void setSessionID(int sessionID) {
-        Session.sessionID = sessionID;
+    public void setSessionID(int sessionID) {
+        this.sessionID = sessionID;
     }
 }

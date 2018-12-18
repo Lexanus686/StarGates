@@ -152,7 +152,6 @@
         });
         constructor.prototype = $.widget.extend(basePrototype, {
 
-            // TODO: remove support for widgetEventPrefix
             // always use the name + a colon as the prefix, e.g., draggable:start
             // don't prefix for widgets that aren't DOM-based
             widgetEventPrefix: existingConstructor ? (basePrototype.widgetEventPrefix || name) : name
@@ -3522,7 +3521,6 @@
             hProps = hProps.concat(["marginLeft", "marginRight"]);
 
             // Only animate children with width attributes specified
-            // TODO: is this right? should we include anything with css width specified as well
             element.find("*[width]").each(function () {
                 var child = $(this),
                     childOriginal = $.effects.scaledDimensions(child),
@@ -5521,7 +5519,6 @@
 
         select: function (event) {
 
-            // TODO: It should never be possible to not have an active item at this
             // point, but the tests don't trigger mouseenter before click.
             this.active = this.active || $(event.target).closest(".ui-menu-item");
             var ui = {item: this.active};
@@ -6324,7 +6321,6 @@
                         var instanceOptions = $.widget.extend({}, options);
 
                         // If the button is the child of a spinner ignore it
-                        // TODO: Find a more generic solution
                         if (widget === "button" && element.parent(".ui-spinner").length) {
                             return;
                         }
@@ -7281,7 +7277,6 @@
         //Keep track of the maximum number of rows displayed (see #7043)
         maxRows: 4,
 
-        // TODO rename to "widget" when switching to widget factory
         _widgetDatepicker: function () {
             return this.dpDiv;
         },
@@ -9314,7 +9309,6 @@
             this.started = false;
         },
 
-        // TODO: make sure destroying one instance of mouse doesn't mess with
         // other instances of mouse
         _mouseDestroy: function () {
             this.element.off("." + this.widgetName);
@@ -10829,7 +10823,6 @@
                 return true;
             }
 
-            // TODO: determine which cases actually cause this to happen
             // if the element doesn't have the scroll set, see if it's possible to
             // set the scroll
             el[scroll] = 1;
@@ -10939,7 +10932,6 @@
                         .remove();
                 };
 
-            // TODO: Unwrap at same DOM position
             if (this.elementIsWrapper) {
                 _destroy(this.element);
                 wrapper = this.element;
@@ -11051,7 +11043,6 @@
                 }
             };
 
-            // TODO: make renderAxis a prototype function
             this._renderAxis(this.element);
 
             this._handles = this._handles.add(this.element.find(".ui-resizable-handle"));
@@ -11431,7 +11422,6 @@
 
                 prel = this._proportionallyResizeElements[i];
 
-                // TODO: Seems like a bug to cache this.outerDimensions
                 // considering that we are in a loop.
                 if (!this.outerDimensions) {
                     this.outerDimensions = this._getPaddingPlusBorderDimensions(prel);
@@ -11462,7 +11452,7 @@
                     position: "absolute",
                     left: this.elementOffset.left + "px",
                     top: this.elementOffset.top + "px",
-                    zIndex: ++o.zIndex //TODO: Don't modify option
+                    zIndex: ++o.zIndex
                 });
 
                 this.helper
@@ -11832,7 +11822,6 @@
             that._addClass(that.ghost, "ui-resizable-ghost");
 
             // DEPRECATED
-            // TODO: remove after 1.12
             if ($.uiBackCompat !== false && typeof that.options.ghost === "string") {
 
                 // Ghost option
@@ -12760,7 +12749,6 @@
                 return true;
             }
 
-            // TODO: Remove hack when datepicker implements
             // the .ui-front logic (#8989)
             return !!$(event.target).closest(".ui-datepicker").length;
         },
@@ -12829,7 +12817,6 @@
     });
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
     if ($.uiBackCompat !== false) {
 
         // Backcompat for dialogClass option
@@ -13076,7 +13063,6 @@
         },
 
         // Extension points just to make backcompat sane and avoid duplicating logic
-        // TODO: Remove in 1.13 along with call to it below
         _addHoverClass: function () {
             this._addClass("ui-droppable-hover");
         },
@@ -13297,7 +13283,6 @@
     };
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
     if ($.uiBackCompat !== false) {
 
         // Backcompat for activeClass and hoverClass options
@@ -15415,7 +15400,6 @@
             });
 
             // Only after we got the offset, we can change the helper's position to absolute
-            // TODO: Still need to figure out a way to make relative sorting possible
             this.helper.css("position", "absolute");
             this.cssPosition = this.helper.css("position");
 
@@ -16121,7 +16105,7 @@
             //Append it after the actual current item
             that.currentItem.after(that.placeholder);
 
-            //Update the size of the placeholder (TODO: Logic to fuzzy, see line 316/317)
+            //Update the size of the placeholder
             o.placeholder.update(that, that.placeholder);
 
         },
@@ -16939,7 +16923,6 @@
                     .hasClass("ui-spinner-up") ? 1 : -1, event);
             },
 
-            // TODO: do we really want to consider this a stop?
             // shouldn't we just stop the repeater and wait until mouseup before
             // we trigger the stop event?
             "mouseleave .ui-spinner-button": "_stop"
@@ -16976,7 +16959,6 @@
                     }
                 });
 
-            // TODO: Right now button does not support models this is already updated in button PR
             this._removeClass(this.buttons, "ui-corner-all");
 
             this._addClass(this.buttons.first(), "ui-spinner-button ui-spinner-up");
@@ -17186,7 +17168,6 @@
                 "aria-valuemin": this.options.min,
                 "aria-valuemax": this.options.max,
 
-                // TODO: what should we do with values that can't be parsed?
                 "aria-valuenow": this._parse(this.element.val())
             });
         },
@@ -17268,7 +17249,6 @@
     });
 
 // DEPRECATED
-// TODO: switch return back to widget declaration at top of file when this is removed
     if ($.uiBackCompat !== false) {
 
         // Backcompat for spinner html extension points
@@ -18187,7 +18167,6 @@
     });
 
 // DEPRECATED
-// TODO: Switch return back to widget declaration at top of file when this is removed
     if ($.uiBackCompat !== false) {
 
         // Backcompat for ui-tab class (now ui-tabs-tab)
@@ -18684,7 +18663,6 @@
     });
 
 // DEPRECATED
-// TODO: Switch return back to widget declaration at top of file when this is removed
     if ($.uiBackCompat !== false) {
 
         // Backcompat for tooltipClass option

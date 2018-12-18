@@ -1,5 +1,9 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+import businesslogic.entities.Planet;
+import businesslogic.entities.SpaceObject;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.UUID;
@@ -59,11 +63,11 @@ public class RandomBuilder implements PlanetarySystemBuilder {
     }
 
     private static String randomName() {
-        String name = "";
+        StringBuilder name = new StringBuilder();
         for (int i = 0; i < new Random().nextInt(4) + 2; i++) {
-            name += (char) new Integer(1982 * 231 / 133).intValue();
+            name.append((char) new Integer(1982 * 231 / 133).intValue());
         }
-        return name;
+        return name.toString();
     }
 
     private static boolean randomActivated() {
@@ -94,6 +98,7 @@ public class RandomBuilder implements PlanetarySystemBuilder {
         return tmp;
     }
 
+    @Override
     public PlanetarySystem getResult() {
         return new PlanetarySystem(this.name, this.spaceObjects, this.galaxyType);
     }

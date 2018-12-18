@@ -1,4 +1,6 @@
-package businesslogic;
+package businesslogic.entities;
+
+import businesslogic.StarGate;
 
 public abstract class SpaceObject {
 
@@ -10,7 +12,7 @@ public abstract class SpaceObject {
     Galaxy location;
     String htmlInfo;
 
-    SpaceObject(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
+    public SpaceObject(String name, boolean isAvailableToVisit, float averageTemperature, float gravitationPower, StarGate starGate, Galaxy location, String htmlInfo) {
         this.name = name;
         this.isAvailableToVisit = isAvailableToVisit;
         this.averageTemperature = averageTemperature;

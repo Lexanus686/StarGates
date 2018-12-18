@@ -1,5 +1,8 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+import businesslogic.entities.SpaceObject;
+
 public interface PlanetarySystemBuilder {
     void setName(String name);
 
@@ -8,6 +11,8 @@ public interface PlanetarySystemBuilder {
     void setGalaxyType(Galaxy galaxyType);
 
     void buildPlanets();
+
+    PlanetarySystem getResult();
 
     Galaxy getGalaxyType();
 

@@ -7,7 +7,7 @@ public class UserDTO {
     private String name;
     private String surname;
 
-    public UserDTO(/*int id,*/ String login, String password, String name, String surname) {
+    UserDTO(/*int id,*/ String login, String password, String name, String surname) {
         //this.id = id;
         this.login = login;
         this.password = password;
@@ -15,7 +15,7 @@ public class UserDTO {
         this.surname = surname;
     }
 
-    public UserDTO(int id, String login, String password, String name, String surname) {
+    UserDTO(int id, String login, String password, String name, String surname) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -31,7 +31,7 @@ public class UserDTO {
         this.id = id;
     }
 
-    public String getLogin() {
+    String getLogin() {
         return login;
     }
 
@@ -39,7 +39,7 @@ public class UserDTO {
         this.login = login;
     }
 
-    public String getPassword() {
+    String getPassword() {
         return password;
     }
 
@@ -55,7 +55,7 @@ public class UserDTO {
         this.name = name;
     }
 
-    public String getSurname() {
+    String getSurname() {
         return surname;
     }
 
@@ -63,11 +63,4 @@ public class UserDTO {
         this.surname = surname;
     }
 
-    public void info() {
-        System.out.println(getId());
-        System.out.println(getLogin());
-        System.out.println(getPassword());
-        System.out.println(getName());
-        System.out.println(getSurname());
-    }
 }

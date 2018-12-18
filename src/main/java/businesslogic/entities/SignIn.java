@@ -1,6 +1,6 @@
-package businesslogic;
+package businesslogic.entities;
 
-public class Login {
+public class SignIn {
     private String email;
 
     private String password;

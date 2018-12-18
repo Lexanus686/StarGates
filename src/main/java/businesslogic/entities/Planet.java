@@ -1,4 +1,6 @@
-package businesslogic;
+package businesslogic.entities;
+
+import businesslogic.StarGate;
 
 public class Planet extends SpaceObject {
 

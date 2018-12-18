@@ -1,5 +1,9 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+import businesslogic.entities.Planet;
+import businesslogic.entities.SpaceObject;
+
 import java.util.ArrayList;
 
 public class SolarBuilder implements PlanetarySystemBuilder {
@@ -10,13 +14,13 @@ public class SolarBuilder implements PlanetarySystemBuilder {
     private final String POSITION = "position: relative; ";
 
     private final String MERCURY_HTML = ID + CLASS_NAME + BACKGROUND + "10,10,10" + "); " + POSITION + "top: 100px; left: 50px;";
-    private final String VENUS_HTML = ID + CLASS_NAME + BACKGROUND + "20,20,20" + "); " + POSITION + "top: 100px; left: 100px;";
-    private final String EARTH_HTML = ID + CLASS_NAME + BACKGROUND + "30,30,30" + "); " + POSITION + "top: 100px; left: 150px;";
-    private final String MARS_HTML = ID + CLASS_NAME + BACKGROUND + "40,40,40" + "); " + POSITION + "top: 100px; left: 200px;";
-    private final String JUPITER_HTML = ID + CLASS_NAME + BACKGROUND + "50,50,50" + "); " + POSITION + "top: 100px; left: 250px;";
-    private final String SATURN_HTML = ID + CLASS_NAME + BACKGROUND + "60,60,60" + "); " + POSITION + "top: 100px; left: 300px;";
-    private final String URANUS_HTML = ID + CLASS_NAME + BACKGROUND + "70,70,70" + "); " + POSITION + "top: 100px; left: 350px;";
-    private final String NEPTUNE_HTML = ID + CLASS_NAME + BACKGROUND + "80,80,80" + "); " + POSITION + "top: 100px; left: 400px;";
+    private final String VENUS_HTML = ID + CLASS_NAME + BACKGROUND + "20,20,20" + "); " + POSITION + "top: 100px; left: 150px;";
+    private final String EARTH_HTML = ID + CLASS_NAME + BACKGROUND + "30,30,30" + "); " + POSITION + "top: 100px; left: 250px;";
+    private final String MARS_HTML = ID + CLASS_NAME + BACKGROUND + "40,40,40" + "); " + POSITION + "top: 100px; left: 350px;";
+    private final String JUPITER_HTML = ID + CLASS_NAME + BACKGROUND + "50,50,50" + "); " + POSITION + "top: 100px; left: 450px;";
+    private final String SATURN_HTML = ID + CLASS_NAME + BACKGROUND + "60,60,60" + "); " + POSITION + "top: 100px; left: 550px;";
+    private final String URANUS_HTML = ID + CLASS_NAME + BACKGROUND + "70,70,70" + "); " + POSITION + "top: 100px; left: 650px;";
+    private final String NEPTUNE_HTML = ID + CLASS_NAME + BACKGROUND + "80,80,80" + "); " + POSITION + "top: 100px; left: 750px;";
 
     private String name;
     private Integer numberOfPlanets;
@@ -35,8 +39,8 @@ public class SolarBuilder implements PlanetarySystemBuilder {
     @Override
     public void setGalaxyType(Galaxy galaxyType) {
         this.galaxyType = galaxyType;
-        for (int i = 0; i < spaceObjects.size(); i++) {
-            spaceObjects.get(i).setLocation(galaxyType);
+        for (SpaceObject spaceObject : spaceObjects) {
+            spaceObject.setLocation(galaxyType);
         }
     }
 
@@ -74,6 +78,7 @@ public class SolarBuilder implements PlanetarySystemBuilder {
         spaceObjects.add(new Planet("Neptune", false, -183, 14.0f, "Hn", false, Galaxy.MODERN, NEPTUNE_HTML));
     }
 
+    @Override
     public PlanetarySystem getResult() {
         return new PlanetarySystem(this.name, this.spaceObjects, this.galaxyType);
     }

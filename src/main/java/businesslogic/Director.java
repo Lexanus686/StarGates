@@ -1,10 +1,12 @@
 package businesslogic;
 
+import businesslogic.entities.Galaxy;
+
 import java.util.Random;
 import java.util.UUID;
 
-//TODO доделать реализацию систем
-public class Director {
+public class Director implements DirectorInterface {
+    @Override
     public void constructSolarSystem(PlanetarySystemBuilder planetarySystemBuilder) {
         planetarySystemBuilder.setName("Solar System");
         planetarySystemBuilder.setSpaceObjects(8);
@@ -12,6 +14,7 @@ public class Director {
         planetarySystemBuilder.setGalaxyType(Galaxy.MODERN);
     }
 
+    @Override
     public void constructRandomSystem(PlanetarySystemBuilder planetarySystemBuilder) {
         planetarySystemBuilder.setName(UUID.randomUUID().toString());
         planetarySystemBuilder.setSpaceObjects(new Random().nextInt(18) + 1);
@@ -20,6 +23,7 @@ public class Director {
         planetarySystemBuilder.setGalaxyType((random == 0) ? (Galaxy.MODERN) : ((random == 1) ? (Galaxy.ANCIENT) : (Galaxy.OLD)));
     }
 
+    @Override
     public void constructCustomisedSystem(PlanetarySystemBuilder planetarySystemBuilder) {
         //TODO допилить реализацию. Пусть тут user сам задает, что он хочет построить
     }

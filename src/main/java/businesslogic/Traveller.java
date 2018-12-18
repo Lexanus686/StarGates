@@ -1,5 +1,8 @@
 package businesslogic;
 
+import businesslogic.entities.Planet;
+import businesslogic.entities.SpaceObject;
+
 import java.util.ArrayList;
 
 public class Traveller {
