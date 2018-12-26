@@ -117,13 +117,10 @@ public class PlanetDAO implements PlanetDAOInterface {
                         resultSet.getBoolean("VISIT"), resultSet.getFloat("TEMPERATURE"),
                         resultSet.getFloat("GRAVITYPOWER"), new StarGate(resultSet.getString("STARGATENAME"), resultSet.getBoolean("STARGATESTATUS")),
                         Galaxy.valueOf(resultSet.getString("LOCATION")), resultSet.getString("HTMLINFO")));
-                //Thread.sleep(1000);
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } /*catch (InterruptedException e) {
-            e.printStackTrace();
-        }*/
+        }
 
         return planetDTOS;
     }

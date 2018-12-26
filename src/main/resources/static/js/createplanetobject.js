@@ -29,7 +29,7 @@ $(function () {
 });
 
 function retrive() {
-    alert("x");
+    //alert("x");
     msg = "getPlanets";
     $.ajax({
         url: 'getAllPlanets',
@@ -38,7 +38,7 @@ function retrive() {
             myMessage: msg
         }),
         success: function (data) {
-
+            //alert("YES");
             //TODO TOP LEVEL: UNDERSTAND HOW TO PLACE ALL OF THEM TOWARDS EACH OTHER CORRECTLY (id:0)
             var offset = 120;
             var count = 0;
@@ -89,7 +89,7 @@ function retrive() {
             }
         },
         error: function (e) {
-            alert(e.text);
+            //alert(e.text);
         }
     });
 }

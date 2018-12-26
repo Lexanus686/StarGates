@@ -23,7 +23,7 @@ function call() {
             alert(data);
         },
         error: function (e) {
-            alert(e.text);
+            //alert(e.text);
         }
     });
 

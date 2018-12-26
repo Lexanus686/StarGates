@@ -10,31 +10,14 @@ function createSystem() {
             myString: msg
         }),
         success: function (data) {
-            alert(data);
+            //alert(data);
             retrive();
-            notify();
+            //alert(data);
+            //notify();
         },
         error: function (e) {
-            alert(e.text);
-            alert(e);
+            //alert(e.text);
+            //alert(e);
         }
     });
-}
-
-function notify() {
-    var x = 0;
-    $.ajax({
-        url: 'loader',
-        type: 'GET',
-        data: ({
-            sign: x
-        }),
-        success: function (data) {
-            alert(data);
-        },
-        error: function (e) {
-            alert(e.text);
-            alert(e);
-        }
-    })
 }

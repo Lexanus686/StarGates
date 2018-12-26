@@ -57,13 +57,31 @@ public class Planet extends SpaceObject {
         return super.htmlInfo;
     }
 
-    public void info() {
-        System.out.println("1: " + getPlanetaryObjectName());
-        System.out.println("2: " + isAvailableToVisit());
-        System.out.println("3: " + getAverageTemperature());
-        System.out.println("4: " + getGravitationPower());
-        System.out.println("5: " + getStargate().getName());
-        System.out.println("6: " + getLocation());
-        System.out.println("7: " + getHtmlInfo());
+    public static Planet initPlanet(String[] array) {
+
+        float temp = array[2].equals("") ? 0.0f : Float.parseFloat(array[2]);
+        float gravity = array[3].equals("") ? 0.0f : Float.parseFloat(array[3]);
+
+        Galaxy type;
+
+        if (array[5].equals("MODERN")) {
+            type = Galaxy.MODERN;
+        } else {
+            if (array[5].equals("OLD")) {
+                type = Galaxy.OLD;
+            } else {
+                type = Galaxy.ANCIENT;
+            }
+        }
+
+        StringBuilder html = new StringBuilder();
+
+        for (int i = 6; i < array.length; i++) {
+            if (i == 6) html.append("[").append(array[i]).append(", ");
+            else if (i == 8) html.append(array[i]).append("]");
+            else html.append(array[i]).append(", ");
+        }
+
+        return new Planet(array[0], array[1].equals("true"), temp, gravity, array[4], type, html.toString());
     }
 }

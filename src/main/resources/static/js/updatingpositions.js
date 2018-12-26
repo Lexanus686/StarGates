@@ -13,10 +13,32 @@ function updating() {
             myHTMLArray: update
         }),
         success: function (data) {
-            alert(data);
+            //alert(data);
         },
         error: function (e) {
-            alert(e);
+            //alert(e);
         }
     });
+}
+
+function updateProgressBar() {
+    var tmp = 0;
+    var current = $("#progressBar").valueOf();
+    $.ajax({
+        url: 'updateProgressBar',
+        type: 'GET',
+        data: ({
+            percent: current
+        }),
+        success: function (data) {
+            $(function () {
+                $("#progressBar").progressbar({
+                    value: data
+                });
+            });
+        },
+        error: function (e) {
+            //alert(e.text);
+        }
+    })
 }

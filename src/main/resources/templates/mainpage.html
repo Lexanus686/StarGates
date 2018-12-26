@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/mainpagestyle.css" th:href="@{/css/mainpagestyle.css}">
     <link rel="stylesheet" type="text/css" href="/static/css/showform.css" th:href="@{/css/showform.css}">
     <link rel="stylesheet" type="text/css" href="/static/jquery/jquery-ui.css" th:href="@{/jquery/jquery-ui.css}">
+    <link rel="stylesheet" type="text/css" href="/static/css/progressbar.css" th:href="@{/css/progressbar.css}">
 
     <meta charset="UTF-8">
     <title>MainPage</title>
@@ -47,6 +48,7 @@
 
 
 </head>
+
 <body id="body">
 
 <div id="header">
@@ -66,6 +68,10 @@
     <input type="button" id="butchoose" value="Create System" onclick="createSystem()">
 
     <button id="but1">Create planets</button>
+
+    <div id="progressTable">
+        <progress id="progressBar" value="0" max="100"></progress>
+    </div>
 
 </div>
 
@@ -91,5 +97,4 @@
 </form>
 
 </body>
-
 </html>

@@ -1,0 +1,9 @@
+#progressBar {
+    right: 0;
+    top: 0;
+    border: 1px solid orangered;
+}
+
+#progressTable {
+    height: 90px;
+}

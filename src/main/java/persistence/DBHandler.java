@@ -8,11 +8,11 @@ import java.sql.SQLException;
 //TODO MY BL = ENTITIES + USe CASES(что моджет хотеть, случай использования)
 //TODO INTERACTOR ~ MANAGER
 //TODO FACADE (ADD)
-//TODO FACADE.getAllSMTHWIthProgress(args, Listener<...>): Future<Result> - в-строенный java
+//TODO FACADE.getAllSMTHWIthProgress(args, ProgressBarListener<...>): Future<Result> - в-строенный java
 //TODO Background operation<Planet or smth> - инкапсулирует в себе длинную операцию. У операции результат и прогресс (long time)
 //TODO PR - progress reporter - принимает PR и плюется result. И говорим, что хочу выполнить это действие (new Task)
 //TODO у PR - BackgroundOper. where was created
-//TODO Listener'ом мы подписываемся на Observable_tmp'a,
+//TODO ProgressBarListener'ом мы подписываемся на Observable_tmp'a,
 
 //TODO Task - incapsulation of thread.
 

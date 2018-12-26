@@ -1,14 +1,20 @@
 package UI.controller;
 
-import businesslogic.*;
-import businesslogic.entities.Galaxy;
-import businesslogic.entities.Planet;
+import UI.ProgressBarListener;
+import UI.ProgressBarListenerInterface;
+import businesslogic.DirectorFacade;
+import businesslogic.PlanetManager;
+import businesslogic.PlanetManagerInterface;
+import businesslogic.PlanetarySystem;
 import businesslogic.entities.SpaceObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.concurrent.Future;
+
+import static businesslogic.entities.Planet.initPlanet;
 
 @Controller
 public class MainPageController {
@@ -18,12 +24,26 @@ public class MainPageController {
     @RequestMapping(value = "/updatePlanet", method = RequestMethod.GET)
     public @ResponseBody
     Integer updatePlanet(@RequestParam(value = "myHTMLArray[]") String[] htmlelements) {
-
-        if (htmlelements[1].length() < 4)
-            planetManager.updatePlanets(errorElement(htmlelements));
-        else planetManager.updatePlanets(htmlelements);
+        if (planetManager != null)
+            if (htmlelements[1].length() < 4)
+                planetManager.updatePlanets(errorElement(htmlelements));
+            else planetManager.updatePlanets(htmlelements);
 
         return 33;
+    }
+
+    @RequestMapping(value = "/updateRetrive", method = RequestMethod.POST)
+    public @ResponseBody
+    Integer updateRetrive() {
+
+        return 142;
+    }
+
+    @RequestMapping(value = "/updateProgressBar", method = RequestMethod.POST)
+    public @ResponseBody
+    Float updateProgressBar(@RequestParam(value = "percent") float current) {
+        System.out.println(current + "%");
+        return current;
     }
 
     @RequestMapping(value = "/getPlanetSystem", method = RequestMethod.GET)
@@ -31,23 +51,23 @@ public class MainPageController {
     Integer getPlanetSystem(@RequestParam(value = "myString") String myString) {
 
         DirectorFacade directorFacade = new DirectorFacade();
+        ProgressBarListenerInterface progressBar = new ProgressBarListener();
 
-        PlanetarySystemInterface planetarySystem = directorFacade.createSystem(myString);
+        PlanetarySystem planetarySystem = directorFacade.createSystem(myString);
 
-        ArrayList<SpaceObject> tmp = ((PlanetarySystem) planetarySystem).getPlanets();
-
-        for (int i = 0; i < ((PlanetarySystem) planetarySystem).getNumberOfPlanets(); i++) {
-            addPlanet(convertToStringArray(tmp.get(i)));
+        int i = 0;
+        Future<Integer> currentTask = directorFacade.LoaderwithProgress(progressBar, planetarySystem, this, planetManager);
+        while (!currentTask.isDone()) {
+            System.out.println("MainCountOfI: " + i);
+            i++;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
 
-        return 23;
-    }
-
-    //tmp
-    @RequestMapping(value = "/loader", method = RequestMethod.GET)
-    public @ResponseBody
-    Integer sendNotify(@RequestParam(value = "sign") Integer sign) {
-        return 0;
+        return 83;
     }
 
     @RequestMapping(value = "/addPlanet", method = RequestMethod.GET)
@@ -62,11 +82,11 @@ public class MainPageController {
     @RequestMapping(value = "/getAllPlanets", method = RequestMethod.GET)
     public @ResponseBody
     String[] getAllPlanets(@RequestParam(value = "myMessage") String myMessage) {
-        //тут запуск чего-то, связанного с асинхронным обращением к БД
-
+//        System.out.println(Arrays.toString(getStrings(planetManager.getAllPlanets())));
         return getStrings(planetManager.getAllPlanets());
     }
 
+    //TODO 89052023925
     @GetMapping("/mainpage")
     public String mainPageForm(@RequestParam(name = "name", required = false, defaultValue = "World") String mainpage, Model model) {
         planetManager = new PlanetManager();
@@ -79,34 +99,6 @@ public class MainPageController {
     public String mainPagePost(@RequestParam(name = "name", required = false, defaultValue = "World") String mainpage, Model model) {
         model.addAttribute("main", mainpage);
         return "mainpage";
-    }
-
-    private static Planet initPlanet(String[] array) {
-
-        float temp = array[2].equals("") ? 0.0f : Float.parseFloat(array[2]);
-        float gravity = array[3].equals("") ? 0.0f : Float.parseFloat(array[3]);
-
-        Galaxy type;
-
-        if (array[5].equals("MODERN")) {
-            type = Galaxy.MODERN;
-        } else {
-            if (array[5].equals("OLD")) {
-                type = Galaxy.OLD;
-            } else {
-                type = Galaxy.ANCIENT;
-            }
-        }
-
-        StringBuilder html = new StringBuilder();
-
-        for (int i = 6; i < array.length; i++) {
-            if (i == 6) html.append("[").append(array[i]).append(", ");
-            else if (i == 8) html.append(array[i]).append("]");
-            else html.append(array[i]).append(", ");
-        }
-
-        return new Planet(array[0], array[1].equals("true"), temp, gravity, array[4], type, html.toString());
     }
 
     private String[] getStrings(ArrayList<SpaceObject> allPlanets) {
@@ -124,18 +116,6 @@ public class MainPageController {
         String[] tmp = new String[1];
         tmp[0] = htmlelements[0] + "," + htmlelements[1] + "," + htmlelements[2];
 
-        return tmp;
-    }
-
-    private static String[] convertToStringArray(SpaceObject obj) {
-        String[] tmp = new String[7];
-        tmp[0] = obj.getPlanetaryObjectName();
-        tmp[1] = String.valueOf(obj.isAvailableToVisit());
-        tmp[2] = String.valueOf(obj.getAverageTemperature());
-        tmp[3] = String.valueOf(obj.getGravitationPower());
-        tmp[4] = obj.getStargate().getName();
-        tmp[5] = obj.getLocation().name();
-        tmp[6] = obj.getHtmlInfo();
         return tmp;
     }
 }
